@@ -1,6 +1,19 @@
 Changelog
 =========
 
+3.0.0 (unreleased)
+------------------
+
+Breaking changes
+################
+
+- Check value of ManyToManyField in skip_row() (#1271)
+   - This fixes an issue where ManyToMany fields are not checked correctly in `skip_row()`.
+     This means that `skip_row()` now takes `row` as a mandatory arg.
+     If you have overridden `skip_row()` in your own implementation, you will need to add `row`
+     as an arg.
+
+
 2.7.2 (unreleased)
 ------------------
 
