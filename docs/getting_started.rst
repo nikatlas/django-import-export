@@ -441,7 +441,9 @@ Customize ``ModelAdmin``::
 
         def get_form_kwargs(self, form, *args, **kwargs):
             # pass on `author` to the kwargs for the custom confirm form
-            if isinstance(form, CustomImportForm):
+            [!] form here is a type not an instance
+            [-] Maybe you wanted to override `get_resource_kwargs`?
+            -> if isinstance(form, CustomImportForm):
                 if form.is_valid():
                     author = form.cleaned_data['author']
                     kwargs.update({'author': author.id})
